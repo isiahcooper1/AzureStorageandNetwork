@@ -29,7 +29,7 @@ Deploys a secure Azure storage account with public access disabled, configures a
 <h align="center">
 <h3>Step 1 — Deploy Storage Infrastructure with Bicep</h3>
 <br />
-Create storage.bicep, paste in the template below, then deploy it from Azure Cloud Shell. The template deploys a hardened storage account with public access disabled, HTTPS enforced, and a default network deny rule. <br/>
+Created storage.bicep and deployed it from the Azure CLI. The template provisioned a storage account with public access disabled, HTTPS enforced, and a default network deny rule. <br/>
 <br/>
 <img src="https://github.com/user-attachments/assets/84125cee-3f0b-4dd4-a1db-7270b5d96e56" height="80%" width="80%" alt="Azure Resource Group"/>
 <br />
@@ -40,7 +40,7 @@ Create storage.bicep, paste in the template below, then deploy it from Azure Clo
 <br />
 <h3>Step 2 — Create a VNet and Private Endpoint via CLI</h3>
 <br />
-Deploy a virtual network with a private subnet, then create a private endpoint to allow network-isolated access to the storage account without any traffic touching the public internet. <br/>
+Deployed a virtual network with a private subnet, then created a private endpoint so the storage account could be reached from within the VNet without any traffic touching the public internet. <br/>
 <br/>
 <img src="https://github.com/user-attachments/assets/730948b0-11a7-4801-b613-a37b54e83d47" height="80%" width="80%" alt="Bicep Deployment"/>
 <br />
@@ -57,7 +57,7 @@ Deploy a virtual network with a private subnet, then create a private endpoint t
 <br />
 <h3>Step 3 — Verify Security Configuration</h3>
 <br />
-Run the following commands to confirm public access is disabled, network rules are set to deny, and the private endpoint provisioned successfully. The failed curl response is expected and confirms the configuration is working correctly. <br/>
+Ran CLI commands to confirm public access was disabled, network rules were set to deny, and the private endpoint had provisioned successfully. Confirmed public access was blocked by testing the blob endpoint directly. <br/>
 <br/>
 <img src="https://github.com/user-attachments/assets/084bdf67-7907-48d0-b05c-2bd869e86003" height="80%" width="80%" alt="VM-NSG Confirmation"/>
 <br />
@@ -71,7 +71,7 @@ Run the following commands to confirm public access is disabled, network rules a
 <br />
 <h3>Step 4 — Create a Blob Container and Test with SAS Token</h3>
 <br />
-Create a blob container, generate a time-limited SAS token, then use Azure Storage Explorer to upload and download a test file to confirm scoped access works correctly. <br/>
+Created a blob container and generated a time-limited SAS token, then used Azure Storage Explorer to upload and download a test file to confirm scoped access worked correctly. <br/>
 <br/>
 <img src="https://github.com/user-attachments/assets/f397724e-ab41-49f1-9ade-5fa2f32194b9" height="80%" width="80%" alt="Shared Drive"/>
 <br />
@@ -88,14 +88,14 @@ Create a blob container, generate a time-limited SAS token, then use Azure Stora
 <br />
 <h3>Step 5 — Assign a Built-in Azure Policy</h3>
 <br />
-Navigate to Azure Policy > Definitions, search for "Secure transfer to storage accounts should be enabled", click Assign, set the scope to rg-lab03, and click Review and Create. Wait 15-20 minutes then navigate to rg-lab03 > Policies to review the compliance state.  <br/>
+Assigned the built-in "Secure transfer to storage accounts should be enabled" policy to rg-lab03 and reviewed the compliance state once evaluation completed.  <br/>
 <br/>
 <img src="https://github.com/user-attachments/assets/4a41e155-6bcf-404e-855b-355796ccd780" height="80%" width="80%" alt="Password Policy GPO Linked to Domain"/>
 <br />
 <br />
 <h3>Step 6 — Cleanup</h3>
 <br />
-Delete the resource group to remove all provisioned resources and avoid ongoing charges.  <br/>
+Deleted the resource group to remove all provisioned resources and avoid ongoing charges.  <br/>
 <br/>
 <img src="https://github.com/user-attachments/assets/ca08c0f8-4de5-443e-9357-b8fc98f27248" height="80%" width="80%" alt="Password Policy GPO Linked to Domain"/>
 <br />
