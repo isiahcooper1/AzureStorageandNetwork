@@ -31,6 +31,9 @@ Deploys a secure Azure storage account with public access disabled, configures a
 <br />
 Created storage.bicep and deployed it from the Azure CLI. The template provisioned a storage account with public access disabled, HTTPS enforced, and a default network deny rule. <br/>
 <br/>
+<img src="https://github.com/user-attachments/assets/d259c5c2-cb06-4d5d-80cc-edd0d8687cd1" height="80%" width="80%" alt="Azure Resource Group"/>
+<br />
+<br />
 <img src="https://github.com/user-attachments/assets/84125cee-3f0b-4dd4-a1db-7270b5d96e56" height="80%" width="80%" alt="Azure Resource Group"/>
 <br />
 <br />
